@@ -1,117 +1,112 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- */
-
 import React from 'react';
-import type {PropsWithChildren} from 'react';
-import {
-  SafeAreaView,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  useColorScheme,
-  View,
-} from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
+import Header from './Header';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
-import {
-  Colors,
-  DebugInstructions,
-  Header,
-  LearnMoreLinks,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
+const LeftComponent1: React.FC = () => {
   return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
+    <View>
+      <Icon name="arrow-left" size={24} color="white" />
     </View>
   );
-}
+};
 
-function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
-
+const CenterComponent1: React.FC = () => {
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar
-        barStyle={isDarkMode ? 'light-content' : 'dark-content'}
-        backgroundColor={backgroundStyle.backgroundColor}
-      />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="Step One">
-            Edit <Text style={styles.highlight}>App.tsx</Text> to change this
-            screen and then come back to see your edits.
-          </Section>
-          <Section title="See Your Changes">
-            <ReloadInstructions />
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <View>
+      <Text style={styles.headerText}>Header</Text>
+    </View>
   );
-}
+};
+
+const RightComponent1: React.FC = () => {
+  return (
+    <View>
+      <Icon name="user" size={24} color="white" />
+    </View>
+  );
+};
+
+const LeftComponent2: React.FC = () => {
+  return (
+    <View>
+      <Icon name="arrow-left" size={24} color="white" />
+    </View>
+  );
+};
+
+const CenterComponent2: React.FC = () => {
+  return (
+    <View>
+      <Text style={styles.headerText}>Trang chủ</Text>
+    </View>
+  );
+};
+
+const RightComponent2: React.FC = () => {
+  return (
+    <View>
+      
+    </View>
+  );
+};
+
+const LeftComponent3: React.FC = () => {
+  return (
+    <View>
+      <Icon name="arrow-left" size={24} color="white" />
+    </View>
+  );
+};
+
+const CenterComponent3: React.FC = () => {
+  return (
+    <View>
+      
+    </View>
+  );
+};
+
+const RightComponent3: React.FC = () => {
+  return (
+    <View>
+      
+    </View>
+  );
+};
+
+const App: React.FC = () => {
+  return (
+    <View style={styles.container}>
+      <Header
+        leftComponent={<LeftComponent1 />}
+        centerComponent={<CenterComponent1 />}
+        rightComponent={<RightComponent1 />}
+      />
+      <Header
+        leftComponent={<LeftComponent2 />}
+        centerComponent={<CenterComponent2 />}
+        rightComponent={<RightComponent2 />}
+      />
+      <Header
+        leftComponent={<LeftComponent3 />}
+        centerComponent={<CenterComponent3 />}
+        rightComponent={<RightComponent3 />}
+      />
+      {/* Add additional content of your app here */}
+    </View>
+  );
+};
 
 const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
+  container: {
+    flex: 1,
+    justifyContent: 'flex-start',
+    alignItems: 'center',
   },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
+  headerText: {
+    color: 'white',
     fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
   },
 });
 
